@@ -1,0 +1,4 @@
+1. pcap_open_live method is used to open live pcap session in promiscuous mode to capture packet from NIC with name ens4
+2. pcap_compile is used to parse and store the compiled version of the filter
+3. after compiling the expression, the pcap_setfilter function is used to install the filter
+4. the got_packet method is used to retrieve the source and destination IP from the IP header

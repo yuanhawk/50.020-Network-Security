@@ -1,0 +1,106 @@
+###[ Ethernet ]### 
+  dst       = 42:01:0a:94:00:01
+  src       = 42:01:0a:94:00:1a
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 60
+     id        = 61739
+     flags     = DF
+     frag      = 0
+     ttl       = 64
+     proto     = tcp
+     chksum    = 0xbdf7
+     src       = 10.148.0.26
+     dst       = 128.230.0.5
+     \options   \
+###[ TCP ]### 
+        sport     = 48938
+        dport     = telnet
+        seq       = 1669110445
+        ack       = 0
+        dataofs   = 10
+        reserved  = 0
+        flags     = S
+        window    = 65320
+        chksum    = 0x8bc7
+        urgptr    = 0
+        options   = [('MSS', 1420), ('SAckOK', b''), ('Timestamp', (3525146958, 0)), ('NOP', None), ('WScale', 7)]
+
+###[ Ethernet ]### 
+  dst       = 42:01:0a:94:00:01
+  src       = 42:01:0a:94:00:1a
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 84
+     id        = 33739
+     flags     = DF
+     frag      = 0
+     ttl       = 63
+     proto     = icmp
+     chksum    = 0x2c45
+     src       = 10.148.0.26
+     dst       = 128.230.0.5
+     \options   \
+###[ ICMP ]### 
+        type      = echo-request
+        code      = 0
+        chksum    = 0x6da9
+        id        = 0x4e
+        seq       = 0x1
+###[ Raw ]### 
+           load      = 'b\xde\xfda\x00\x00\x00\x00]\xf4\r\x00\x00\x00\x00\x00\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f !"#$%&\'()*+,-./01234567'
+
+###[ Ethernet ]### 
+  dst       = 42:01:0a:94:00:1a
+  src       = 42:01:0a:94:00:01
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 112
+     id        = 31948
+     flags     = 
+     frag      = 0
+     ttl       = 59
+     proto     = icmp
+     chksum    = 0x3982
+     src       = 128.230.61.171
+     dst       = 10.148.0.26
+     \options   \
+###[ ICMP ]### 
+        type      = dest-unreach
+        code      = host-unreachable
+        chksum    = 0xfcfe
+        reserved  = 0
+        length    = 0
+        nexthopmtu= 0
+###[ IP in ICMP ]### 
+           version   = 4
+           ihl       = 5
+           tos       = 0x40
+           len       = 84
+           id        = 33739
+           flags     = DF
+           frag      = 0
+           ttl       = 53
+           proto     = icmp
+           chksum    = 0x3605
+           src       = 10.148.0.26
+           dst       = 128.230.0.5
+           \options   \
+###[ ICMP in ICMP ]### 
+              type      = echo-request
+              code      = 0
+              chksum    = 0x6da9
+              id        = 0x4e
+              seq       = 0x1
+###[ Raw ]### 
+                 load      = 'b\xde\xfda\x00\x00\x00\x00]\xf4\r\x00\x00\x00\x00\x00\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f !"#$%&\'()*+,-./01234567'
+

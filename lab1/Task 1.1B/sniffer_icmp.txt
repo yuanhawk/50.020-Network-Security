@@ -1,0 +1,63 @@
+[02/10/22]admin@ubuntu-1:~/.../Task 2.3$ ping 8.8.8.8 -c 1
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=115 time=1.06 ms
+
+--- 8.8.8.8 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 1.056/1.056/1.056/0.000 ms
+
+
+root@ubuntu-1:/volumes/Task 1.1B# ./sniffer_icmp.py
+###[ Ethernet ]### 
+  dst       = 42:01:0a:94:00:01
+  src       = 42:01:0a:94:00:1a
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 84
+     id        = 62046
+     flags     = DF
+     frag      = 0
+     ttl       = 64
+     proto     = icmp
+     chksum    = 0x2d8d
+     src       = 10.148.0.26
+     dst       = 8.8.8.8
+     \options   \
+###[ ICMP ]### 
+        type      = echo-request
+        code      = 0
+        chksum    = 0xb88d
+        id        = 0xa
+        seq       = 0x1
+###[ Raw ]### 
+           load      = '\xa8j\x04b\x00\x00\x00\x00\xcb\xc7\x08\x00\x00\x00\x00\x00\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f !"#$%&\'()*+,-./01234567'
+
+###[ Ethernet ]### 
+  dst       = 42:01:0a:94:00:1a
+  src       = 42:01:0a:94:00:01
+  type      = IPv4
+###[ IP ]### 
+     version   = 4
+     ihl       = 5
+     tos       = 0x0
+     len       = 84
+     id        = 0
+     flags     = 
+     frag      = 0
+     ttl       = 115
+     proto     = icmp
+     chksum    = 0x2cec
+     src       = 8.8.8.8
+     dst       = 10.148.0.26
+     \options   \
+###[ ICMP ]### 
+        type      = echo-reply
+        code      = 0
+        chksum    = 0xc08d
+        id        = 0xa
+        seq       = 0x1
+###[ Raw ]### 
+           load      = '\xa8j\x04b\x00\x00\x00\x00\xcb\xc7\x08\x00\x00\x00\x00\x00\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f !"#$%&\'()*+,-./01234567'

@@ -1,0 +1,92 @@
+root@ubuntu-1:/volumes/Task 2.1B# ./sniff br-3e5f42528ad9 "tcp dst portrange 10-100"
+sniffex - Sniffer example using libpcap
+Copyright (c) 2005 The Tcpdump Group
+THERE IS ABSOLUTELY NO WARRANTY FOR THIS PROGRAM.
+
+Device: br-3e5f42528ad9
+Number of packets: 10
+Filter expression: tcp dst portrange 10-100
+
+Packet number 1:
+       From: 10.9.0.5
+         To: 10.9.0.6
+   Protocol: TCP
+   Src port: 40668
+   Dst port: 10
+
+Packet number 2:
+       From: 10.9.0.5
+         To: 10.9.0.6
+   Protocol: TCP
+   Src port: 50048
+   Dst port: 23
+
+Packet number 3:
+       From: 10.9.0.5
+         To: 10.9.0.6
+   Protocol: TCP
+   Src port: 50048
+   Dst port: 23
+
+Packet number 4:
+       From: 10.9.0.5
+         To: 10.9.0.6
+   Protocol: TCP
+   Src port: 50048
+   Dst port: 23
+   Payload (24 bytes):
+00000   ff fd 03 ff fb 18 ff fb  1f ff fb 20 ff fb 21 ff    ........... ..!.
+00016   fb 22 ff fb 27 ff fd 05                             ."..'...
+
+Packet number 5:
+       From: 10.9.0.5
+         To: 10.9.0.6
+   Protocol: TCP
+   Src port: 50048
+   Dst port: 23
+
+Packet number 6:
+       From: 10.9.0.5
+         To: 10.9.0.6
+   Protocol: TCP
+   Src port: 50048
+   Dst port: 23
+   Payload (3 bytes):
+00000   ff fc 23                                            ..#
+
+Packet number 7:
+       From: 10.9.0.5
+         To: 10.9.0.6
+   Protocol: TCP
+   Src port: 50048
+   Dst port: 23
+
+Packet number 8:
+       From: 10.9.0.5
+         To: 10.9.0.6
+   Protocol: TCP
+   Src port: 50048
+   Dst port: 23
+   Payload (43 bytes):
+00000   ff fa 1f 00 50 00 18 ff  f0 ff fa 20 00 33 38 34    ....P...... .384
+00016   30 30 2c 33 38 34 30 30  ff f0 ff fa 27 00 ff f0    00,38400....'...
+00032   ff fa 18 00 78 74 65 72  6d ff f0                   ....xterm..
+
+Packet number 9:
+       From: 10.9.0.5
+         To: 10.9.0.6
+   Protocol: TCP
+   Src port: 50048
+   Dst port: 23
+
+Packet number 10:
+       From: 10.9.0.5
+         To: 10.9.0.6
+   Protocol: TCP
+   Src port: 50048
+   Dst port: 23
+   Payload (3 bytes):
+00000   ff fc 01                                            ...
+
+Capture complete.
+

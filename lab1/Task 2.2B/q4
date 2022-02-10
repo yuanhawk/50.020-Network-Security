@@ -1,0 +1,2 @@
+No, you can t set an arbitrary value, it must be of size 60.
+Total length for our packet require to be converted to the network byte-order(htons(60)

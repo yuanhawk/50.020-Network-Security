@@ -1,0 +1,1 @@
+Yes, the checksum is used to ensure that the IP header is not corrupted, and to allow the reliable packet to be passed to the raw socket

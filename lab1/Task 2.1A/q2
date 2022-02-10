@@ -1,0 +1,1 @@
+The sniff program needs to be run in promiscuous mode and to access the raw socket, which are privileged functions. The pcap_open_live method fails as it is unable to be run in the promiscuous mode

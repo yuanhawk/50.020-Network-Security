@@ -1,0 +1,13 @@
+[02/10/22]admin@ubuntu-1:~/.../Task 2.3$ ping 8.8.8.8 -c 1
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=115 time=0.938 ms
+
+--- 8.8.8.8 ping statistics ---
+1 packets transmitted, 1 received, 0% packet loss, time 0ms
+rtt min/avg/max/mdev = 0.938/0.938/0.938/0.000 ms
+
+root@ubuntu-1:/volumes/Task 1.4# ./sniff_and_spoof.py
+.
+Sent 1 packets.
+Sending spoofed pkt from: 10.148.0.26 back to 8.8.8.8
+

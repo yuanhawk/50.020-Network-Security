@@ -1,0 +1,3 @@
+bash: sniffer.txt: Permission denied
+
+sniff() needs to set promiscuous mode so root privilege is required

@@ -1,0 +1,1 @@
+The raw socket allows the programmer to simulate a server on any port and in order for the binding of the port to occur, root privilege is required to bind to dedicated ports (<1024). The program fails at sd = socket(AF_INET, SOCK_RAW, IPPROTO_RAW)) < 0
