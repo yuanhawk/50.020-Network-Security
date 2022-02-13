@@ -1,0 +1,2 @@
+[02/12/22]admin@Attacker-vm:~/.../Labsetup$ sudo netwox 76 -i "10.148.0.26" -p "443"
+

@@ -1,0 +1,5 @@
+Install vlc:
+[02/12/22]admin@Attacker-vm:~$ sudo apt-get install vlc
+
+Edit the youtube lua file of vlc:
+sudo cp youtube.lua /usr/lib/x86_64-linux-gnu/vlc/lua/playlist/youtube.luac

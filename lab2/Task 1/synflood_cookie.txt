@@ -1,0 +1,97 @@
+root@58a9ed39547c:/# sysctl -w net.ipv4.tcp_syncookies=1
+net.ipv4.tcp_syncookies = 1
+
+root@Attacker-vm:/volumes# python3 synflood.py
+
+root@58a9ed39547c:/# netstat -tna
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State      
+tcp        0      0 0.0.0.0:23              0.0.0.0:*               LISTEN     
+tcp        0      0 127.0.0.11:39033        0.0.0.0:*               LISTEN     
+tcp        0      0 10.9.0.5:23             94.4.72.248:8304        SYN_RECV   
+tcp        0      0 10.9.0.5:23             134.212.0.240:30738     SYN_RECV   
+tcp        0      0 10.9.0.5:23             200.222.226.241:10708   SYN_RECV   
+tcp        0      0 10.9.0.5:23             189.151.23.55:18141     SYN_RECV   
+tcp        0      0 10.9.0.5:23             136.126.238.152:612     SYN_RECV   
+tcp        0      0 10.9.0.5:23             151.127.172.90:4701     SYN_RECV   
+tcp        0      0 10.9.0.5:23             186.119.23.20:21792     SYN_RECV   
+tcp        0      0 10.9.0.5:23             40.104.32.128:28092     SYN_RECV   
+tcp        0      0 10.9.0.5:23             34.159.11.168:62491     SYN_RECV   
+tcp        0      0 10.9.0.5:23             26.233.209.28:63616     SYN_RECV   
+tcp        0      0 10.9.0.5:23             79.199.43.147:37270     SYN_RECV   
+tcp        0      0 10.9.0.5:23             20.25.164.156:46920     SYN_RECV   
+tcp        0      0 10.9.0.5:23             179.173.53.240:41862    SYN_RECV   
+tcp        0      0 10.9.0.5:23             48.36.25.215:26679      SYN_RECV   
+tcp        0      0 10.9.0.5:23             78.28.101.235:5114      SYN_RECV   
+tcp        0      0 10.9.0.5:23             170.173.7.44:50836      SYN_RECV   
+tcp        0      0 10.9.0.5:23             106.193.8.65:30986      SYN_RECV   
+tcp        0      0 10.9.0.5:23             19.90.82.244:63065      SYN_RECV   
+tcp        0      0 10.9.0.5:23             67.64.192.54:20640      SYN_RECV   
+tcp        0      0 10.9.0.5:23             41.96.180.87:46265      SYN_RECV   
+tcp        0      0 10.9.0.5:23             164.36.147.91:31638     SYN_RECV   
+tcp        0      0 10.9.0.5:23             84.254.209.98:14673     SYN_RECV   
+tcp        0      0 10.9.0.5:23             209.181.106.215:59260   SYN_RECV   
+tcp        0      0 10.9.0.5:23             12.204.196.168:51592    SYN_RECV   
+tcp        0      0 10.9.0.5:23             39.99.22.132:62219      SYN_RECV   
+tcp        0      0 10.9.0.5:23             118.205.222.141:249     SYN_RECV   
+tcp        0      0 10.9.0.5:23             105.1.154.197:50518     SYN_RECV   
+tcp        0      0 10.9.0.5:23             154.211.39.22:10277     SYN_RECV   
+tcp        0      0 10.9.0.5:23             46.11.14.154:23238      SYN_RECV   
+tcp        0      0 10.9.0.5:23             46.223.10.182:30253     SYN_RECV   
+tcp        0      0 10.9.0.5:23             102.146.86.211:28298    SYN_RECV   
+tcp        0      0 10.9.0.5:23             84.136.60.231:26395     SYN_RECV   
+tcp        0      0 10.9.0.5:23             2.212.45.225:13595      SYN_RECV   
+tcp        0      0 10.9.0.5:23             212.127.209.163:15920   SYN_RECV   
+tcp        0      0 10.9.0.5:23             98.202.151.53:13208     SYN_RECV   
+tcp        0      0 10.9.0.5:23             14.71.173.216:54694     SYN_RECV   
+tcp        0      0 10.9.0.5:23             1.146.137.203:14949     SYN_RECV   
+tcp        0      0 10.9.0.5:23             49.70.177.90:47411      SYN_RECV   
+tcp        0      0 10.9.0.5:23             117.152.247.55:38335    SYN_RECV   
+tcp        0      0 10.9.0.5:23             132.25.1.202:15649      SYN_RECV   
+tcp        0      0 10.9.0.5:23             47.184.61.161:6523      SYN_RECV   
+tcp        0      0 10.9.0.5:23             104.86.67.174:55008     SYN_RECV   
+tcp        0      0 10.9.0.5:23             13.206.192.243:46171    SYN_RECV   
+tcp        0      0 10.9.0.5:23             140.85.122.117:48664    SYN_RECV   
+tcp        0      0 10.9.0.5:23             115.168.190.47:5976     SYN_RECV   
+tcp        0      0 10.9.0.5:23             164.168.135.113:34691   SYN_RECV   
+tcp        0      0 10.9.0.5:23             170.191.114.201:64438   SYN_RECV   
+tcp        0      0 10.9.0.5:23             70.32.67.17:6279        SYN_RECV   
+tcp        0      0 10.9.0.5:23             121.118.146.180:50409   SYN_RECV   
+tcp        0      0 10.9.0.5:23             153.204.176.186:55728   SYN_RECV   
+tcp        0      0 10.9.0.5:23             137.197.151.88:34085    SYN_RECV   
+tcp        0      0 10.9.0.5:23             203.2.20.39:59116       SYN_RECV   
+tcp        0      0 10.9.0.5:23             124.9.41.238:17945      SYN_RECV   
+tcp        0      0 10.9.0.5:23             209.236.209.128:65231   SYN_RECV   
+tcp        0      0 10.9.0.5:23             61.184.29.138:9779      SYN_RECV   
+tcp        0      0 10.9.0.5:23             245.68.131.230:61499    SYN_RECV   
+tcp        0      0 10.9.0.5:23             5.235.90.73:39602       SYN_RECV   
+tcp        0      0 10.9.0.5:23             209.155.82.89:7819      SYN_RECV   
+tcp        0      0 10.9.0.5:23             190.94.174.8:39044      SYN_RECV   
+tcp        0      0 10.9.0.5:23             203.75.211.9:28425      SYN_RECV   
+tcp        0      0 10.9.0.5:23             251.55.36.96:12273      SYN_RECV   
+tcp        0      0 10.9.0.5:23             17.22.56.199:7696       SYN_RECV   
+tcp        0      0 10.9.0.5:23             134.74.236.250:5851     SYN_RECV   
+tcp        0      0 10.9.0.5:23             150.121.133.53:27146    SYN_RECV   
+tcp        0      0 10.9.0.5:23             52.166.213.200:60908    SYN_RECV   
+tcp        0      0 10.9.0.5:23             248.92.152.197:56619    SYN_RECV
+
+root@d5c1ac18ddb9:/# telnet 10.9.0.5
+Trying 10.9.0.5...
+Connected to 10.9.0.5.
+Escape character is '^]'.
+Ubuntu 20.04.1 LTS
+58a9ed39547c login: seed
+Password: 
+Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.11.0-1029-gcp x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+This system has been minimized by removing packages and content that are
+not required on a system that users do not log into.
+
+To restore this content, you can run the 'unminimize' command.
+Last login: Fri Feb 11 09:40:33 UTC 2022 from user2-10.9.0.7.net-10.9.0.0 on pts/3
+seed@58a9ed39547c:~$ 
+
