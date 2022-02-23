@@ -1,0 +1,67 @@
+root@2a0db12a8bdf:/# dig ns.attacker32.com
+
+; <<>> DiG 9.16.1-Ubuntu <<>> ns.attacker32.com
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 38952
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+; COOKIE: ac4101f298ed2f3a01000000621268550bc3dbd1093561db (good)
+;; QUESTION SECTION:
+;ns.attacker32.com.		IN	A
+
+;; ANSWER SECTION:
+ns.attacker32.com.	259200	IN	A	10.9.0.153
+
+;; Query time: 4 msec
+;; SERVER: 10.9.0.53#53(10.9.0.53)
+;; WHEN: Sun Feb 20 16:12:05 UTC 2022
+;; MSG SIZE  rcvd: 90
+
+root@2a0db12a8bdf:/# dig www.example.com
+
+; <<>> DiG 9.16.1-Ubuntu <<>> www.example.com
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 54721
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+; COOKIE: bdb4cfedceb61da001000000621268eb0fa5d39a82c30f2b (good)
+;; QUESTION SECTION:
+;www.example.com.		IN	A
+
+;; ANSWER SECTION:
+www.example.com.	86400	IN	A	93.184.216.34
+
+;; Query time: 1492 msec
+;; SERVER: 10.9.0.53#53(10.9.0.53)
+;; WHEN: Sun Feb 20 16:14:35 UTC 2022
+;; MSG SIZE  rcvd: 88
+
+root@2a0db12a8bdf:/# dig @ns.attacker32.com www.example.com
+
+; <<>> DiG 9.16.1-Ubuntu <<>> @ns.attacker32.com www.example.com
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 17741
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+; COOKIE: b2be59aaadb9fbc0010000006212692fee6bde6779c52a31 (good)
+;; QUESTION SECTION:
+;www.example.com.		IN	A
+
+;; ANSWER SECTION:
+www.example.com.	259200	IN	A	1.2.3.5
+
+;; Query time: 0 msec
+;; SERVER: 10.9.0.153#53(10.9.0.153)
+;; WHEN: Sun Feb 20 16:15:43 UTC 2022
+;; MSG SIZE  rcvd: 88
+
