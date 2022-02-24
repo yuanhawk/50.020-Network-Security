@@ -2,7 +2,7 @@
 
 from scapy.all import *
 
-name = 'abcde.example.com'
+name = 'hello.example.com'
 domain = 'example.com'
 ns = 'ns.attacker32.com'
 Qdsec = DNSQR(qname=name)
